@@ -1,0 +1,49 @@
+﻿@page "/fetchdata"
+@using LocalizationDemo.Shared
+@using System.Globalization
+@inject HttpClient Http
+@inject IStringLocalizer<FetchData> Loc
+
+<PageTitle>@Loc["FetchDataTitle"]</PageTitle>
+
+<h1>@Loc["FetchDataTitle"]</h1>
+
+<p>@Loc["FetchDataSubtitle"]</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Loc["FetchDataDate"]</th>
+                <th>@Loc["FetchDataTempC"]</th>
+                <th>@Loc["FetchDataTempF"]</th>
+                <th>@Loc["FetchDataSummary"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+    }
+}

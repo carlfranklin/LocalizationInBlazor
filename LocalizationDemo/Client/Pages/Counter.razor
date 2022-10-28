@@ -1,0 +1,20 @@
+﻿@using System.Globalization
+@inject IStringLocalizer<Counter> Loc
+@page "/counter"
+
+<PageTitle>@Loc["CounterTitle"]</PageTitle>
+
+<h1>@Loc["CounterTitle"]</h1>
+
+<p role="status">@Loc["CounterText"] @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">@Loc["CounterButton"]</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
