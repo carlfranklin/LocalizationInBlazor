@@ -2123,6 +2123,18 @@ Add to *_Imports.razor*:
 @using Blazored.LocalStorage
 ```
 
+Next, we need to add LocalStorage as a service in *Program.cs*:
+
+```c#
+builder.Services.AddBlazoredLocalStorage();
+```
+
+You'll need this:
+
+```c#
+using Blazored.LocalStorage;
+```
+
 Next, create the following razor component in the *Shared* folder:
 
 *CultureSelector.razor*:
