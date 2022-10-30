@@ -2059,6 +2059,236 @@ Go back to the application, and refresh the page. You should now see the complet
 
 Gracias y hasta luego mundo!
 
+## Allow the user to select the language
+
+Now, let's add a UI element to allow the user to change the language dynamically.
+
+The workflow will be:
+
+1. The user changes the language.
+2. We change the culture using a component that calls an extension we provide
+3. We redirect the user back to the original page.
+4. The application shows on the correct language.
+
+Again, we will be working solely in the Client project.
+
+Add the following class files to the project:
+
+*CultureWithName.cs*:
+
+```c#
+public record CultureWithName
+{
+    public string Name { get; init; } = default!;
+    public string Culture { get; init; } = default!;
+
+    public CultureWithName(string name, string culture)
+    {
+        Name = name;
+        Culture = culture;
+    }
+}
+```
+
+*LocalizerSettings.cs*:
+
+```c#
+public static class LocalizerSettings
+{
+    public static CultureWithName NeutralCulture = 
+    	new CultureWithName("English", "en-US");
+
+    public static readonly List<CultureWithName> SupportedCulturesWithName = 
+        new List<CultureWithName>() 
+        { 
+            new CultureWithName("English", "en-US"),
+            new CultureWithName("Spanish (Mexico)", "es-MX") 
+        };
+}
+```
+
+`LocalizerSettings` is a static class that returns a list of available cultures with both a name and a culture string.
+
+We will need a way to store and retrieve the selected culture, so let's use `Blazored.LocalStorage`.
+
+Add the following `PackageReference` to *LocalizationDemo.Client.csproj*:
+
+```xml
+<PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
+```
+
+Add to *_Imports.razor*:
+
+```
+@using Blazored.LocalStorage
+```
+
+Next, create the following razor component in the *Shared* folder:
+
+*CultureSelector.razor*:
+
+```c#
+@using System.Globalization
+@inject NavigationManager Navigation
+@inject ILocalStorageService LocalStorage
+@inject IStringLocalizer<MainLayout> Loc
+
+<span>@Loc["Language"]:&nbsp;
+    <select @onchange="NewCultureSelectedAsync">
+        @foreach (var culture in LocalizerSettings.SupportedCulturesWithName)
+        {
+            @if (SelectedCulture != null && culture == SelectedCulture)
+            {
+                <option selected value="@culture.Culture">@culture.Name</option>
+            }
+            else
+            {
+                <option value="@culture.Culture">@culture.Name</option>
+            }
+        }
+    </select>
+</span>
+
+@code
+{
+    CultureWithName SelectedCulture = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var culture = await LocalStorage.GetItemAsync<string>("culture");
+        if (culture == "")
+            SelectedCulture = LocalizerSettings.NeutralCulture;
+        else
+            SelectedCulture = (from x in LocalizerSettings.SupportedCulturesWithName
+                               where x.Culture == culture
+                               select x).FirstOrDefault();
+    }
+
+    private async Task NewCultureSelectedAsync(ChangeEventArgs args)
+    {
+        string cultureString = args.Value.ToString();
+        await LocalStorage.SetItemAsync<string>("culture", cultureString);
+        Navigation.NavigateTo(Navigation.Uri, true);
+    }
+}
+```
+
+This component shows the available languages in a dropdown list.
+
+When a new language is selected, we write the language culture to local storage and reload the app at the current page.
+
+Replace *Shared/MainLayout.razor* with the following:
+
+```xml
+@using System.Globalization
+@inject IStringLocalizer<MainLayout> Loc
+@inherits LayoutComponentBase
+
+<PageTitle>@Loc["ApplicationName"]</PageTitle>
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <CultureSelector />
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">@Loc["MenuAbout"]</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+```
+
+All I did was add this guy..
+
+```xml
+<CultureSelector />
+```
+
+In the top div, before the `About` link.
+
+Now since we are using the resources for `MainLayout`, we need to add the following strings to the following resource files:
+
+*MainLayout.en-US.resx*:
+
+| Name     | Value    |
+| -------- | -------- |
+| Language | Language |
+
+*MainLayout.ex-MX.resx*:
+
+| Name     | Value  |
+| -------- | ------ |
+| Language | Idioma |
+
+Finally, we need to be able to set the culture when we load the app.
+
+To do this we'll add the following class file:
+
+*WebAssemblyHostExtensions.cs*:
+
+```c#
+using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using System.Globalization;
+
+public static class WebAssemblyHostExtensions
+{
+    public async static Task SetDefaultCulture(this WebAssemblyHost host)
+    {
+        var localStorage = host.Services.GetRequiredService<ILocalStorageService>();
+        var cultureString = await localStorage.GetItemAsync<string>("culture");
+
+        CultureInfo cultureInfo;
+
+        if (!string.IsNullOrWhiteSpace(cultureString))
+        {
+            cultureInfo = new CultureInfo(cultureString);
+        }
+        else
+        {
+            cultureInfo = new CultureInfo("en-US");
+        }
+
+        CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+        CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+    }
+}
+```
+
+This will be called at startup. 
+
+We check local storage for the culture, and if it is set we change the default culture to it.
+
+Now, this has to be called from *Program.cs*.
+
+In *Program.cs*, replace line 17:
+
+```c#
+await builder.Build().RunAsync();
+```
+
+... with this:
+
+```c#
+var host = builder.Build();
+await host.SetDefaultCulture(); 
+await host.RunAsync();
+```
+
+Since we added our `WebAssemblyHostExtensions` extension to `WebAssemblyHost`, we can call `SetDefaultCulture()` on it before running.
+
+Run the app and switch cultures!
+
+
+
+
+
 ## Summary
 
 In this episode, we built a **Hosted Blazor WebAssembly** application, and we added localization support.

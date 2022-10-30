@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationDemo.Server", "LocalizationDemo\Server\LocalizationDemo.Server.csproj", "{0FC37831-459A-444A-AC5C-16D24C3AD5AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationDemo.Server", "LocalizationDemo\Server\LocalizationDemo.Server.csproj", "{0FC37831-459A-444A-AC5C-16D24C3AD5AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationDemo.Client", "LocalizationDemo\Client\LocalizationDemo.Client.csproj", "{FE1EA5AD-12BC-4BB4-8D0B-0BF0F6ED58CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationDemo.Client", "LocalizationDemo\Client\LocalizationDemo.Client.csproj", "{FE1EA5AD-12BC-4BB4-8D0B-0BF0F6ED58CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationDemo.Shared", "LocalizationDemo\Shared\LocalizationDemo.Shared.csproj", "{CB3C4EC8-E0A7-4693-BD19-0612E44A6E12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizationDemo.Shared", "LocalizationDemo\Shared\LocalizationDemo.Shared.csproj", "{CB3C4EC8-E0A7-4693-BD19-0612E44A6E12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,6 @@
 ﻿@using System.Globalization
 @inject IStringLocalizer<Index> Loc
+@inject IJSRuntime jsRuntime
 @page "/"
 
 <PageTitle>Index</PageTitle>
@@ -9,3 +10,4 @@
 @Loc["HomeSubtitle"]
 
 <SurveyPrompt Title="@Loc["SurveyPromptTitle"]" />
+
