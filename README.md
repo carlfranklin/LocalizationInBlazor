@@ -2285,9 +2285,11 @@ Since we added our `WebAssemblyHostExtensions` extension to `WebAssemblyHost`, w
 
 Run the app and switch cultures!
 
+![image-20221030125230901](md-images/image-20221030125230901.png)
 
+![image-20221030125242134](md-images/image-20221030125242134.png)
 
-
+If you close the app and restart it again, you'll notice the language preference was saved.
 
 ## Summary
 
@@ -2295,9 +2297,9 @@ In this episode, we built a **Hosted Blazor WebAssembly** application, and we ad
 
 We made use of the **Microsoft.Extensions.Localization NuGet** package, to leverage localization services, and used **AddLocalization**, and the **IStringLocalizer** interface, to accomplish that.
 
-At the end we ended up with the default **Blazor** template application, but with support for English and Spanish.
+This resulted in the default **Blazor** template application, but with support for English and Spanish.
 
-For more information about **Blazor**, check the links in the resources section below.
+We then added the ability for the user to select the language from a drop-down list.
 
 ## Complete Code
 
