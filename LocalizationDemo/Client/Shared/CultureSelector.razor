@@ -1,7 +1,7 @@
 ﻿@using System.Globalization
 @inject NavigationManager Navigation
 @inject ILocalStorageService LocalStorage
-@inject IStringLocalizer<MainLayout> Loc
+@inject IStringLocalizer<App> Loc
 
 <span>@Loc["Language"]:&nbsp;
     <select @onchange="NewCultureSelectedAsync">

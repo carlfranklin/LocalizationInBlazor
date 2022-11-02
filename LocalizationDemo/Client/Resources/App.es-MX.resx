@@ -117,7 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Bienvenido a tu nueva aplicación.</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>Hola, mundo!</value>
+  </data>
+  <data name="SurveyPromptTitle" xml:space="preserve">
+    <value>¿Cómo funciona Blazor para usted?</value>
+  </data>
+  <data name="CounterButton" xml:space="preserve">
+    <value>Presióname</value>
+  </data>
+  <data name="CounterText" xml:space="preserve">
+    <value>Contador actual</value>
+  </data>
+  <data name="CounterTitle" xml:space="preserve">
+    <value>Contador</value>
+  </data>
+  <data name="FetchDataDate" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="FetchDataSubtitle" xml:space="preserve">
+    <value>Este componente demuestra cómo obtener datos desde un servicio.</value>
+  </data>
+  <data name="FetchDataSummary" xml:space="preserve">
+    <value>Resumen</value>
+  </data>
+  <data name="FetchDataTempC" xml:space="preserve">
+    <value>Temperatura (C)</value>
+  </data>
+  <data name="FetchDataTempF" xml:space="preserve">
+    <value>Temperatura (F)</value>
+  </data>
+  <data name="FetchDataTitle" xml:space="preserve">
+    <value>Pronóstico del tiempo</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Localización en Blazor</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Idioma</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="NavBarApplicationName" xml:space="preserve">
+    <value>Localización en Blazor</value>
+  </data>
+  <data name="NavBarCounter" xml:space="preserve">
+    <value>Contador</value>
+  </data>
+  <data name="NavBarFetchData" xml:space="preserve">
+    <value>Obtener Datos</value>
+  </data>
+  <data name="NavBarHome" xml:space="preserve">
+    <value>Página Principal</value>
+  </data>
+  <data name="HomeFooter1" xml:space="preserve">
+    <value>Por favor, responda a nuestra</value>
+  </data>
+  <data name="HomeFooter2" xml:space="preserve">
+    <value>corta encuesta</value>
+  </data>
+  <data name="HomeFooter3" xml:space="preserve">
+    <value>y díganos que piensa.</value>
+  </data>
+  <data name="SurveyTitle" xml:space="preserve">
+    <value>¿Qué tal te está funcionando Blazor?</value>
   </data>
 </root>

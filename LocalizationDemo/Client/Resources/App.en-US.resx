@@ -117,7 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Welcome to your new app.</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>Hello, world!</value>
+  </data>
+  <data name="SurveyPromptTitle" xml:space="preserve">
+    <value>How is Blazor working for you?</value>
+  </data>
+  <data name="CounterButton" xml:space="preserve">
+    <value>Click me</value>
+  </data>
+  <data name="CounterText" xml:space="preserve">
+    <value>Current count</value>
+  </data>
+  <data name="CounterTitle" xml:space="preserve">
+    <value>Counter</value>
+  </data>
+  <data name="FetchDataDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="FetchDataSubtitle" xml:space="preserve">
+    <value>This component demonstrates fetching data from a service.</value>
+  </data>
+  <data name="FetchDataSummary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="FetchDataTempC" xml:space="preserve">
+    <value>Temp. (C)</value>
+  </data>
+  <data name="FetchDataTempF" xml:space="preserve">
+    <value>Temp. (F)</value>
+  </data>
+  <data name="FetchDataTitle" xml:space="preserve">
+    <value>Weather forecast</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Localization in Blazor</value>
+  </data>
   <data name="Language" xml:space="preserve">
-    <value>Idioma</value>
+    <value>Language</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="NavBarApplicationName" xml:space="preserve">
+    <value>Localization in Blazor</value>
+  </data>
+  <data name="NavBarCounter" xml:space="preserve">
+    <value>Counter</value>
+  </data>
+  <data name="NavBarFetchData" xml:space="preserve">
+    <value>FetchData</value>
+  </data>
+  <data name="NavBarHome" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="HomeFooter1" xml:space="preserve">
+    <value>Please take our</value>
+  </data>
+  <data name="HomeFooter2" xml:space="preserve">
+    <value>brief survey</value>
+  </data>
+  <data name="HomeFooter3" xml:space="preserve">
+    <value>and tell us what you think.</value>
+  </data>
+  <data name="SurveyTitle" xml:space="preserve">
+    <value>How is Blazor working for you?</value>
   </data>
 </root>

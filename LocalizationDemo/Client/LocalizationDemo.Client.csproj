@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -15,11 +15,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Remove="Resources\Shared\CultureSelector.en-US.resx" />
-	  <EmbeddedResource Remove="Resources\Shared\CultureSelector.es-MX.resx" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.10" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.10" PrivateAssets="all" />
@@ -28,12 +23,6 @@
 	
 	<ItemGroup>
 		<ProjectReference Include="..\Shared\LocalizationDemo.Shared.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Pages\Index.es-MX.resx">
-	    <SubType>Designer</SubType>
-	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>
