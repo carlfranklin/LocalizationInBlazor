@@ -514,9 +514,10 @@ Open the *LocalizationInBlazor.Client.csproj*, and add the following section
 </PropertyGroup>
 ```
 
-Then, open the *_Imports.razor* file, and add the following using statement.
+Then, open the *_Imports.razor* file, and add the following using statements.
 
 ```razor
+@using LocalizationDemo.Shared
 @using Microsoft.Extensions.Localization
 ```
 
@@ -585,7 +586,6 @@ Replace the content of all pages, as follows:
 Page *Counter.razor*
 
 ```html
-@using System.Globalization
 @inject IStringLocalizer<App> Loc
 @page "/counter"
 
@@ -611,8 +611,6 @@ Page *FetchData.razor*
 
 ```html
 @page "/fetchdata"
-@using LocalizationDemo.Shared
-@using System.Globalization
 @inject HttpClient Http
 @inject IStringLocalizer<App> Loc
 
@@ -664,7 +662,6 @@ else
 Page *Index.razor*
 
 ```html
-@using System.Globalization
 @inject IStringLocalizer<App> Loc
 @inject IJSRuntime jsRuntime
 @page "/"
@@ -676,12 +673,12 @@ Page *Index.razor*
 @Loc[nameof(ResourceStrings.HomeSubtitle)]
 
 <SurveyPrompt Title="@Loc[nameof(ResourceStrings.SurveyPromptTitle)]" />
+    
 ```
 
 *Shared/MainLayout.razor*
 
 ```html
-@using System.Globalization
 @inject IStringLocalizer<App> Loc
 @inherits LayoutComponentBase
 
@@ -702,12 +699,12 @@ Page *Index.razor*
         </article>
     </main>
 </div>
+
 ```
 
 *Shared/NavMenu.razor*
 
 ```xml
-@using System.Globalization
 @inject IStringLocalizer<App> Loc
 
 <div class="top-row ps-3 navbar navbar-dark">
@@ -754,7 +751,6 @@ Page *Index.razor*
 *Shared/SurveyPrompt.razor*
 
 ```html
-@using System.Globalization
 @inject IStringLocalizer<App> Loc
 
 <div class="alert alert-secondary mt-4">
@@ -882,7 +878,6 @@ Next, create the following razor component in the *Shared* folder:
 *CultureSelector.razor*:
 
 ```c#
-@using System.Globalization
 @inject NavigationManager Navigation
 @inject ILocalStorageService LocalStorage
 @inject IStringLocalizer<App> Loc
@@ -935,7 +930,6 @@ When a new language is selected, we write the language culture to local storage 
 Replace *Shared/MainLayout.razor* with the following:
 
 ```xml
-@using System.Globalization
 @inject IStringLocalizer<App> Loc
 @inherits LayoutComponentBase
 
