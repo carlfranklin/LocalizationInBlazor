@@ -987,7 +987,7 @@ public static class WebAssemblyHostExtensions
         }
         else
         {
-            cultureInfo = new CultureInfo("en-US");
+            cultureInfo = new CultureInfo(LocalizerSettings.NeutralCulture.Name);
         }
 
         CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
