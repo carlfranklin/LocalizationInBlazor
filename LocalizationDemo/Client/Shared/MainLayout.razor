@@ -2,7 +2,7 @@
 @inject IStringLocalizer<App> Loc
 @inherits LayoutComponentBase
 
-<PageTitle>@Loc["ApplicationName"]</PageTitle>
+<PageTitle>@Loc[nameof(ResourceStrings.ApplicationName)]</PageTitle>
 
 <div class="page">
     <div class="sidebar">
@@ -12,7 +12,7 @@
     <main>
         <div class="top-row px-4">
             <CultureSelector />
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">@Loc["MenuAbout"]</a>
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">@Loc[nameof(ResourceStrings.MenuAbout)]</a>
         </div>
 
         <article class="content px-4">
