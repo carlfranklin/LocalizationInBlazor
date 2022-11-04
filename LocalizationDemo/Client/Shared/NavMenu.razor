@@ -1,8 +1,6 @@
-﻿@inject IStringLocalizer<App> Loc
-
-<div class="top-row ps-3 navbar navbar-dark">
+﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">@Loc[nameof(ResourceStrings.ApplicationName)]</a>
+        <a class="navbar-brand" href="">@ResourceStrings.ApplicationName</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -13,17 +11,17 @@
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> @Loc[nameof(ResourceStrings.NavBarHome)]
+                <span class="oi oi-home" aria-hidden="true"></span> @ResourceStrings.NavBarHome
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> @Loc[nameof(ResourceStrings.NavBarCounter)]
+                <span class="oi oi-plus" aria-hidden="true"></span> @ResourceStrings.NavBarCounter
             </NavLink>
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> @Loc[nameof(ResourceStrings.NavBarFetchData)]
+                <span class="oi oi-list-rich" aria-hidden="true"></span> @ResourceStrings.NavBarFetchData
             </NavLink>
         </div>
     </nav>

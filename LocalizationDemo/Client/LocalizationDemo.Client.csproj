@@ -24,5 +24,33 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Shared\LocalizationDemo.Shared.csproj" />
 	</ItemGroup>
+	
+	<ItemGroup>
+	  <Compile Update="Resources\ResourceStrings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ResourceStrings.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\ResourceStrings.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ResourceStrings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+    <EmbeddedResource Update="Resources\App.*.resx">
+      <Generator></Generator>
+      <DependentUpon>App.resx</DependentUpon>
+    </EmbeddedResource>
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\ResourceStrings.es-MX.resx">
+	    <DependentUpon>ResourceStrings.resx</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\ResourceStrings.en-US.resx">
+	    <DependentUpon>ResourceStrings.resx</DependentUpon>
+	  </EmbeddedResource>
+	</ItemGroup>
 
 </Project>
