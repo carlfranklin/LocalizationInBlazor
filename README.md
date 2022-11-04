@@ -2,6 +2,8 @@
 
 In this episode, we are going to build a **Blazor WebAssembly** application, and we are going to add localization support.
 
+To learn how to add localization in a **Blazor Server** application, see my repo at https://github.com/carlfranklin/LocalizationInBlazorServer
+
 We will make use of the `Microsoft.Extensions.Localization` NuGet package, to leverage localization services, such as the `AddLocalization` service, and the `IStringLocalizer` interface.
 
 We will create an enumeration for all of our resource strings and use them in our app to avoid magic string typos.
@@ -29,8 +31,6 @@ Alternatively, you can add this package reference in your *LocalizationInBlazor.
 ```xml
 <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.10" />
 ```
-
-Now we are going to add localization services to the server application by adding the `AddLocalization` middleware.
 
 We need a place to store our resource files in different languages. In our demo we will support two languages: English and Spanish. 
 
@@ -71,11 +71,7 @@ You can delete the default resource, or rename it. We are going to add all the E
 | NavBarHome            | Home                                                      |
 | SurveyPromptTitle     | How is Blazor working for you?                            |
 
-Resource files are nothing but **XML** files, in order to view the code, right-click on the resource file, and select **Open With** from the menu.
-
-![Open With](md-images/9ea4dd83a61e2c8a55988e7a597b810aab01c20faeb165aff7f87191297634fc.png)  
-
-Then click on **XML (Text) Editor**, and then OK.
+Resource files are nothing but **XML** files, in order to view the code, right-click on the resource file, and select **Open With** from the menu. Then select **XML (Text) Editor**, and then OK.
 
  ![image-20221103092441795](md-images/image-20221103092441795.png)
 
@@ -579,7 +575,7 @@ Now, let's modify the pages listed below, to be able to be displayed in English,
 5. NavMenu.razor
 6. SurveyPrompt.razor
 
-In a nutshell, we are going to add to all pages, the using statement `@using System.Globalization`, and inject the `IStringSerializer` and replace all the strings.
+In a nutshell, we are going to inject inject the `IStringSerializer` and replace all the strings in all components.
 
 Replace the content of all pages, as follows:
 
@@ -953,13 +949,11 @@ Replace *Shared/MainLayout.razor* with the following:
 </div>
 ```
 
-All I did was add this guy..
+All I did was add this guy in the top div, before the `About` link:
 
 ```xml
 <CultureSelector />
 ```
-
-In the top div, before the `About` link.
 
 Finally, we need to be able to set the culture when we load the app.
 
