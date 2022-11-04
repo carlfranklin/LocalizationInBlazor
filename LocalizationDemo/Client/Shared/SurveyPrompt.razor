@@ -1,14 +1,12 @@
-﻿@inject IStringLocalizer<App> Loc
-
-<div class="alert alert-secondary mt-4">
+﻿<div class="alert alert-secondary mt-4">
     <span class="oi oi-pencil me-2" aria-hidden="true"></span>
     <strong>@Title</strong>
 
     <span class="text-nowrap">
-        @Loc[nameof(ResourceStrings.HomeFooter1)]
-        <a target="_blank" class="font-weight-bold link-dark" href="https://go.microsoft.com/fwlink/?linkid=2149017">@Loc[nameof(ResourceStrings.HomeFooter2)]</a>
+        @ResourceStrings.HomeFooter1
+        <a target="_blank" class="font-weight-bold link-dark" href="https://go.microsoft.com/fwlink/?linkid=2149017">@ResourceStrings.HomeFooter2</a>
     </span>
-    @Loc[nameof(ResourceStrings.HomeFooter3)]
+    @ResourceStrings.HomeFooter3
 </div>
 
 @code {

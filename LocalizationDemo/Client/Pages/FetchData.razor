@@ -1,12 +1,11 @@
 ﻿@page "/fetchdata"
 @inject HttpClient Http
-@inject IStringLocalizer<App> Loc
 
-<PageTitle>@Loc[nameof(ResourceStrings.FetchDataTitle)]</PageTitle>
+<PageTitle>@ResourceStrings.FetchDataTitle</PageTitle>
 
-<h1>@Loc[nameof(ResourceStrings.FetchDataTitle)]</h1>
+<h1>@ResourceStrings.FetchDataTitle</h1>
 
-<p>@Loc[nameof(ResourceStrings.FetchDataSubtitle)]</p>
+<p>@ResourceStrings.FetchDataSubtitle</p>
 
 @if (forecasts == null)
 {
@@ -17,10 +16,10 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>@Loc[nameof(ResourceStrings.FetchDataDate)]</th>
-                <th>@Loc[nameof(ResourceStrings.FetchDataTempC)]</th>
-                <th>@Loc[nameof(ResourceStrings.FetchDataTempF)]</th>
-                <th>@Loc[nameof(ResourceStrings.FetchDataSummary)]</th>
+                <th>@ResourceStrings.FetchDataDate</th>
+                <th>@ResourceStrings.FetchDataTempC</th>
+                <th>@ResourceStrings.FetchDataTempF</th>
+                <th>@ResourceStrings.FetchDataSummary</th>
             </tr>
         </thead>
         <tbody>

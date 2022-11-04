@@ -1,13 +1,12 @@
-﻿@inject IStringLocalizer<App> Loc
-@page "/counter"
+﻿@page "/counter"
 
-<PageTitle>@Loc[nameof(ResourceStrings.CounterTitle)]</PageTitle>
+<PageTitle>@ResourceStrings.CounterTitle</PageTitle>
 
-<h1>@Loc[nameof(ResourceStrings.CounterTitle)]</h1>
+<h1>@ResourceStrings.CounterTitle</h1>
 
-<p role="status">@Loc[nameof(ResourceStrings.CounterText)] @currentCount</p>
+<p role="status">@ResourceStrings.CounterText @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">@Loc[nameof(ResourceStrings.CounterButton)]</button>
+<button class="btn btn-primary" @onclick="IncrementCount">@ResourceStrings.CounterButton</button>
 
 @code {
     private int currentCount = 0;
